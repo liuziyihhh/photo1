@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>轮播图点击切换</title>
+  <style>
+    * {
+      box-sizing: border-box;
+    }
+
+    .slider {
+      width: 560px;
+      height: 400px;
+      overflow: hidden;
+    }
+
+    .slider-wrapper {
+      width: 100%;
+      height: 320px;
+    }
+
+    .slider-wrapper img {
+      width: 100%;
+      height: 100%;
+      display: block;
+    }
+    .toggle {
+      display: none;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="slider">
+    <div class="slider-wrapper">
+      <img src="./images/产教融合/与爱尔眼科医院集团举行校企战略合作签约仪式.jpg" alt="" />
+      <div class="toggle">
+        <button class="next">&gt;</button>
+      </div>
+    </div>
+  </div>
+  <script>
+    // 1. 初始数据
+    const sliderData = [
+      { url: './images/产教融合/与爱尔眼科医院集团举行校企战略合作签约仪式.jpg' },
+      { url: './images/产教融合/与德国稻香坊餐饮集团举行校企合作交流会暨签约仪式.jpg' },
+      { url: './images/产教融合/与法国品阁高等厨艺学院举行“云签约”仪式.jpg' },
+      { url: './images/产教融合/与淮安市本草堂中医门诊有限公司举行“中医康复产教融合实训基地”揭牌仪式1.jpg' },
+      { url: './images/产教融合/与淮安市本草堂中医门诊有限公司举行“中医康复产教融合实训基地”揭牌仪式2.jpg' },
+      { url: './images/产教融合/与淮安苏京教育科技咨询有限公司签约共建“苏食院·e-BABY国际精致托班”.jpg' },
+      { url: './images/产教融合/与晖致医药有限公司共建“晖致班”签约揭牌1.png' },
+      { url: './images/产教融合/与晖致医药有限公司共建“晖致班”签约揭牌2.png' },
+      { url: './images/产教融合/与农行淮安分行举行银校合作签约仪式.jpg' },
+      { url: './images/产教融合/与泰州美好健康养老有限公司举行合作签约暨授牌仪式.jpg' },
+      { url: './images/产教融合/与天士力帝益举行合作项目签约仪式.jpg' },
+      { url: './images/产教融合/与亚龙智能装备股份有限公司举行“智能装备产教融合实践中心”签约仪式.jpg' },
+      { url: './images/产教融合/与益丰大药房举办校企合作签约仪式.jpg' },
+      { url: './images/产教融合/与意大利TOR CARBONE特级烹饪学院举行云端签约仪式.jpg' },
+      { url: './images/产教融合/与正大食品（宿迁）有限公司举行校企合作签约仪式.jpg' }
+    ]
+    //获取元素
+    const img = document.querySelector('.slider-wrapper img')
+    // 右侧按钮
+    const next = document.querySelector('.next')
+    let i = 0
+
+    next.addEventListener('click', function () {
+      i++
+      if (i >= 15) {
+        i = 0
+      }
+      toggle()
+    })
+    function toggle() {
+      //得到对应的对象
+      img.src = sliderData[i].url
+    }
+    //自动播放
+    let timerId = setInterval(function () {
+      next.click()
+    }, 2500)
+  </script>
+</body>
+
+</html>
